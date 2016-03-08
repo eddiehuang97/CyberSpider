@@ -42,7 +42,10 @@ private:
 		char value[121];
 		char context[121];
 		BinaryFile::Offset next;
-		bool active;
+	};
+	struct Header {
+		BinaryFile::Offset head;
+		BinaryFile::Offset next;
 	};
 };
 
