@@ -16,12 +16,15 @@ public:
 	public:
 		Iterator();
 		// You may add additional constructors
+		Iterator(DiskMultiMap* reference, BinaryFile::Offset whereAt);
 		bool isValid() const;
 		Iterator& operator++();
 		MultiMapTuple operator*();
 
 	private:
 		// Your private member declarations will go here
+		BinaryFile::Offset pointingAt;
+		DiskMultiMap* dmm;
 	};
 
 	DiskMultiMap();
@@ -41,10 +44,6 @@ private:
 		char key[121];
 		char value[121];
 		char context[121];
-		BinaryFile::Offset next;
-	};
-	struct Header {
-		BinaryFile::Offset head;
 		BinaryFile::Offset next;
 	};
 };
